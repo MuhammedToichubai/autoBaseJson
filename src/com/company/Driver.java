@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.model.Truck;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -18,14 +17,6 @@ public class Driver {
     private int id;
     private String name;
     private String truck;
-
-    public String getTruck() {
-        return truck;
-    }
-
-    public void setTruck(String truck) {
-        this.truck = truck;
-    }
 
     public Driver(int id, String driver) {
         this.id = id;
@@ -48,14 +39,22 @@ public class Driver {
         this.name = name;
     }
 
+    public String getTruck() {
+        return truck;
+    }
+
+    public void setTruck(String truck) {
+        this.truck = truck;
+    }
+
     public static Driver[] getDrivers() {
         Driver[] drivers = {
-                new Driver(1, "Өмүр "),
-                new Driver(2, "Илим "),
-                new Driver(3, "Билим")
+                new Driver(1,"Өмүр "),
+                new Driver( 2,"Илим "),
+                new Driver(3,"Билим")
         };
 
-        Gson gson=new Gson();
+        Gson gson = new Gson();
         String json=GSON.toJson(drivers);
         writeDriverFile(json);
         System.out.println(readDriverFile());
@@ -91,18 +90,18 @@ public class Driver {
         return json;
     }
 
-    public static void getInfo(Truck truck) {
-        System.out.println("N: " + truck.getId());
-        System.out.println("Truck name: " + truck.getName());
-        System.out.println("Driver: " + truck.getDriver());
-        System.out.println("State: " + truck.getState());
+    public static void getInfo(Truck car) {
+        System.out.println("N: " + car.getId());
+        System.out.println("Name: " + car.getName());
+        System.out.println("Driver: " + car.getDriver());
+        System.out.println("State: " + car.getState());
     }
 
     @Override
     public String toString() {
         return
                 " " + id +
-                        " | " + name +
-                        "       | " + truck;
+                        " |    " + name +
+                        "    |" + truck;
     }
 }

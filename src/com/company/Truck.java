@@ -1,4 +1,4 @@
-package com.company.model;
+package com.company;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,7 +14,7 @@ public class Truck {
 
     public static final GsonBuilder BUILDER = new GsonBuilder();
     public static final Gson GSON = BUILDER.setPrettyPrinting().create();
-    public static final Path WRITE_PATH = Paths.get("./cars.json");
+    public static final Path WRITE_PATH = Paths.get("./trucks.json");
     private int id;
     private String name;
     private String driver;
@@ -59,21 +59,22 @@ public class Truck {
         this.state = state;
     }
 
-    public static Truck[] getTrucks() {
+    public static Truck[] getTruck() {
+
         Truck[] trucks = {
-                new Truck(1, "Rambo    ", "", "base"),
-                new Truck(2, "Lady     ", "", "base"),
+                new Truck(1, "Rambo", "", "base"),
+                new Truck(2, "Lady", "", "base"),
                 new Truck(3, "El Grande", "", "base")
         };
 
         Gson gson = new Gson();
-        String json=GSON.toJson(trucks);
+        String json = GSON.toJson(trucks);
         System.out.println(readCarFile());
         writeCarFile(json);
 
         Truck[] truck = GSON.fromJson(readCarFile(), Truck[].class);
-        for (Truck truck1 : truck) {
-            System.out.println(truck1.toString());
+        for (Truck car : truck) {
+            System.out.println(car.toString());
         }
         return trucks;
     }
@@ -107,8 +108,7 @@ public class Truck {
         return
                 " " + id +
                         " | " + name +
-                        "   |    " + driver +""+
-                        "      | " + state;
+                        "   |    " + driver +
+                        "      |  " + state;
     }
 }
-
