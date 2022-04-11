@@ -8,11 +8,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        Truck[] trucks1 = Truck.getTruck();
-        Driver[] drivers1 = Driver.getDrivers();
-        System.out.println("======================================");
-        print(trucks1);
-        print(drivers1);
+//        Truck[] trucks1 = Truck.getTruck();
+//        Driver[] drivers1 = Driver.getDrivers();
+//        System.out.println("======================================");
+//        print(trucks1);
+//        print(drivers1);
 
         Truck[] trucks = {
                 new Truck(1, "Rambo", "", "base"),
@@ -24,6 +24,8 @@ public class Main {
                 new Driver( 2,"Илим"),
                 new Driver(3,"Билим")
         };
+        print(trucks);
+        print(drivers);
 
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         while (true) {
